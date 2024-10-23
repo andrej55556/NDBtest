@@ -16,9 +16,16 @@ namespace NDBtest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            Application.Run(new Form2(1));
+            //Application.Run(new Users());
+            //Application.Run(new Form2(2));
             //Application.Run(new Keys());
+            //Application.Run(new Variants());
+            //Application.Run(new NotKeys());
+            //Application.Run(new NotKeysView());
+            //Application.Run(new KeyAtr());
+            //Application.Run(new FD());
+            Application.Run(new LoginForm());
+            //Application.Run(new TestForm("C:\\Users\\Таня\\source\\repos\\NDBtest\\NDBtest\\bin\\Debug\\Решения студентов\\-_Коттеджи (Попытка № 12).xlsx"));
         }
     }
 }

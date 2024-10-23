@@ -12,17 +12,14 @@ using System.Configuration;
 
 namespace NDBtest
 {
-    public partial class Form2 : Form
+    public partial class Attributes : Form
     {
-        string conStr = ConfigurationManager.ConnectionStrings["Users"].ToString();
-        int var = 1;
-
-        public Form2(int var)//передать сюда вариант
+        public Attributes(/*int var*/)//передать сюда вариант
         {
             InitializeComponent();
-            this.var = var;
+            //this.var = var;
 
-            using (var cn = NpgsqlDataSource.Create(conStr))
+           /* using (var cn = NpgsqlDataSource.Create(Global.conStr))
             {
                 cn.OpenConnection();
                 var sql = "select v.name from \"Variants\" v \r\nwhere v.id  = @var";
@@ -38,7 +35,7 @@ namespace NDBtest
                 }
                 cn.Dispose();
                 dr.Dispose();
-            }
+            }*/
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -53,9 +50,30 @@ namespace NDBtest
                 this.attributesTableAdapter.Fill(this.normalizationDataSet.Attributes);
 
 
-                this.normalizationDataSet.Attributes.variantColumn.DefaultValue = var;
-                this.normalizationDataSet.KeyAttributes.variantColumn.DefaultValue = var;
-                this.normalizationDataSet.NotKeyAttributes.variantColumn.DefaultValue = var;
+                this.normalizationDataSet.Attributes.variantColumn.DefaultValue = Global.variant;
+                this.normalizationDataSet.KeyAttributes.variantColumn.DefaultValue = Global.variant;
+                this.normalizationDataSet.NotKeyAttributes.variantColumn.DefaultValue = Global.variant;
+
+                /*string filterExpression = $"variant = {Global.variant}";
+                notKeyAttributesBindingSource.Filter = filterExpression;
+                keyAttributesBindingSource.Filter = filterExpression;
+                attributesBindingSource.Filter = filterExpression;*/
+
+                DataView view = new DataView(this.normalizationDataSet.Attributes);
+                view.RowFilter = $"variant = {Global.variant}";
+                dataGridView1.DataSource = view;
+
+                /*DataView view2 = new DataView(this.normalizationDataSet.KeyAttributes);
+                view2.RowFilter = $"variant = {Global.variant}";
+                dataGridView2.DataSource = view;
+
+                DataView view3 = new DataView(this.normalizationDataSet.NotKeyAttributes);
+                view3.RowFilter = $"variant = {Global.variant}";
+                dataGridView3.DataSource = view;*/
+
+
+
+                //dataGridView1.Refresh();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -66,7 +84,7 @@ namespace NDBtest
             this.attributesTableAdapter.Update(this.normalizationDataSet);
         }
 
-        private Rectangle dragBoxFromMouseDown;
+       /* private Rectangle dragBoxFromMouseDown;
         private int rowIndexFromMouseDown;
         private int rowIndexOfItemUnderMouseToDrop;
 
@@ -102,7 +120,7 @@ namespace NDBtest
 
         private void dataGridView2_DragDrop(object sender, DragEventArgs e)
         {
-            /*Point clientPoint = dataGridView1.PointToClient(new Point(e.X, e.Y));
+            *//*Point clientPoint = dataGridView1.PointToClient(new Point(e.X, e.Y));
 
             // Get the row index of the item the mouse is below. 
             int rowIndexOfItemUnderMouseToDrop = dataGridView2.HitTest(clientPoint.X, clientPoint.Y).RowIndex;
@@ -112,7 +130,7 @@ namespace NDBtest
             //dataGridView2.Rows.RemoveAt(rowIndexFromMouseDown);
             dataGridView2.Rows.Insert(rowIndexOfItemUnderMouseToDrop, rowToMove);*/
             /*DataGridViewRow rowToMove = e.Data.GetData(typeof(DataGridViewRow)) as DataGridViewRow;
-            MessageBox.Show(rowToMove.Cells.ToString());*/
+            MessageBox.Show(rowToMove.Cells.ToString());*//*
 
             // The mouse locations are relative to the screen, so they must be 
             // converted to client coordinates.
@@ -153,13 +171,13 @@ namespace NDBtest
 
         private void dataGridView3_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            /*try 
+            *//*try 
             {
                 dataGridView3.UpdateCellValue(1,e.RowIndex);
                 
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message); }*/
-        }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }*//*
+        }*/
 
         private void button2_Click(object sender, EventArgs e)
         {

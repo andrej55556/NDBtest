@@ -1,6 +1,6 @@
 ﻿namespace NDBtest
 {
-    partial class Keys
+    partial class NotKeysView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,63 +29,52 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button_Del = new System.Windows.Forms.Button();
-            this.fd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fd,
-            this.name});
+            this.Column1,
+            this.Column2});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1464, 1007);
+            this.dataGridView1.Size = new System.Drawing.Size(2111, 1244);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button_Del
+            // Column1
             // 
-            this.button_Del.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button_Del.Location = new System.Drawing.Point(0, 984);
-            this.button_Del.Name = "button_Del";
-            this.button_Del.Size = new System.Drawing.Size(1464, 23);
-            this.button_Del.TabIndex = 2;
-            this.button_Del.Text = "Удалить";
-            this.button_Del.UseVisualStyleBackColor = true;
-            this.button_Del.Click += new System.EventHandler(this.button_Del_Click);
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.HeaderText = "№ функциональной зависимости";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 255;
             // 
-            // fd
+            // Column2
             // 
-            this.fd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.fd.HeaderText = "№ функциональной зависимости";
-            this.fd.MinimumWidth = 6;
-            this.fd.Name = "fd";
-            this.fd.Width = 292;
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Атрибут";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
             // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.HeaderText = "Атрибуты";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            // 
-            // Keys
+            // NotKeysView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1464, 1007);
-            this.Controls.Add(this.button_Del);
+            this.ClientSize = new System.Drawing.Size(2111, 1244);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Keys";
-            this.Text = "Ключевые атрибуты";
+            this.Name = "NotKeysView";
+            this.Text = "Неключевые атрибуты";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Keys_Load);
+            this.Load += new System.EventHandler(this.NotKeysView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -94,8 +83,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button_Del;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
